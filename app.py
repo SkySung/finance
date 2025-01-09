@@ -64,7 +64,6 @@ def after_request(response):
 
 
 @app.route("/")
-@login_required
 def index():
     """Show portfolio of stocks"""
     holdings = Holding.query.filter_by(user_id=session["user_id"]).all()
