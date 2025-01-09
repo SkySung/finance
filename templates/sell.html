@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Sell
+{% endblock %}
+
+{% block main %}
+    <form action="/sell" class="m-sm-5" method="post">
+        <h1>Sell</h1>
+        <div class="row mb-3">
+            <label for=symbol class="col-5 text-end col-form-label pe-0">Symbol</label>
+            <div class="col-7 align-self-start">
+                <select id="symbol" name="symbol" class="form-select ms-sm-0 w-auto" aria-label="Default select example">
+                    {% for column in rows %}
+                    <option value="{{ column.symbol }}">{{ column.symbol }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for=shares class="col-5 text-end col-form-label pe-0">Amount</label>
+            <div class="col-7 align-self-end">
+                <input autocomplete="off" class="form-control ms-sm-0 w-auto" id="shares" name="shares"
+                    placeholder="0" type="text">
+                <!-- make a frontend amount check will be better -->
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Sell</button>
+    </form>
+{% endblock %}

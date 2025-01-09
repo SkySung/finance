@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <form action="/quote" class="m-sm-5" method="post">
+        <h1>Result</h1>
+        {% if result == None %}
+        <div class="mb-3">
+            There is no result. Please try again.
+            {% else %}
+            {{ result["name"] }} is now ${{ '%0.2f' % result["price"] }}
+        </div>
+        {% endif %}
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="symbol" name="symbol" placeholder="Symbol" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+{% endblock %}

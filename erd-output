@@ -1,0 +1,5 @@
+// Database Schema
+digraph {
+	users [label=users]
+	"sqlite_sequence(name,seq);" [label="sqlite_sequence(name,seq);"]
+}

@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Index
+{% endblock %}
+
+{% block main %}
+<div class="m-sm-5">
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>symbol</th>
+                <th>name</th>
+                <th>shares</th>
+                <th>price</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for column in holding %}
+            <tr>
+                <td>{{ column.symbol }}</td>
+                <td>{{column.name }}</td>
+                <td>{{ column.shares }}</td>
+                <td>{{ '%0.2f' % column.price }}</td>
+                <td>{{ '%0.2f' % column.total }}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Cash</td>
+                <td>{{ '%0.2f' % cash }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Total</td>
+                <td>{{ '%0.2f' % total }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

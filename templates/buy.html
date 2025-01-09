@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Buy
+{% endblock %}
+
+{% block main %}
+    <form action="/buy" class="m-sm-5" method="post">
+        <h1>Buy</h1>
+        <div class="row mb-3">
+            <label for=symbol class="col-5 text-end col-form-label pe-0">Symbol</label>
+            <div class="col-7 align-self-start">
+                <input autocomplete="off" autofocus class="form-control ms-sm-0 w-auto" id="symbol" name="symbol"
+                    placeholder="Symbol" type="text">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for=shares class="col-5 text-end col-form-label pe-0">Amount</label>
+            <div class="col-7 align-self-end">
+                <input autocomplete="off" class="form-control ms-sm-0 w-auto" id="shares" name="shares"
+                    placeholder="0" type="text">
+                <!-- make a frontend amount check will be better -->
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Buy</button>
+    </form>
+{% endblock %}

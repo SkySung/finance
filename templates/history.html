@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+History
+{% endblock %}
+
+{% block main %}
+<div class="m-sm-5">
+    <h1>History</h1>
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>symbol</th>
+                <th>shares</th>
+                <th>price</th>
+                <th>type</th>
+                <th>transacted</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for column in rows %}
+            <tr>
+                <td>{{ column.symbol }}</td>
+                <td>{{ column.shares }}</td>
+                <td>{{ '%0.2f' % column.price }}</td>
+                <td>{{ column.type }}</td>
+                <td>{{ column.transacted }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
